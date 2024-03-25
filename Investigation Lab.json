@@ -28,28 +28,28 @@
                     "targetPort": "5_in"
                 },
                 {
-                    "id": "port_5_to_port_4",
+                    "id": "port_5_to_port_7",
                     "sourceNode": "5",
                     "sourcePort": "5_out",
-                    "targetNode": "4",
-                    "targetPort": "4_in"
+                    "targetNode": "7",
+                    "targetPort": "7_in"
                 },
                 {
-                    "id": "port_6_to_port_4",
+                    "id": "port_6_to_port_7",
                     "sourceNode": "6",
                     "sourcePort": "6_out",
-                    "targetNode": "4",
-                    "targetPort": "4_in"
+                    "targetNode": "7",
+                    "targetPort": "7_in"
                 },
                 {
-                    "id": "port_2_to_port_4",
+                    "id": "port_2_to_port_7",
                     "sourceNode": "2",
                     "sourcePort": "2_out",
-                    "targetNode": "4",
-                    "targetPort": "4_in"
+                    "targetNode": "7",
+                    "targetPort": "7_in"
                 }
             ],
-            "hash": "c2101b270f17efb278f699e0734bc39b117c3c40",
+            "hash": "44e0d63865c14992619c7e29e74ba3c56429a40a",
             "nodes": {
                 "0": {
                     "data": {
@@ -286,9 +286,13 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {},
-                    "x": 140,
-                    "y": 280
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
+                    "x": -220,
+                    "y": 440
                 },
                 "5": {
                     "data": {
@@ -361,6 +365,56 @@
                     "warnings": {},
                     "x": 440,
                     "y": 140
+                },
+                "7": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Check Positives",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": ">",
+                                        "param": "virus_search:action_result.summary.positives",
+                                        "value": "10"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "Hi Positives",
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "op": "==",
+                                        "param": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "Lo Positives",
+                                "display": "Else",
+                                "logic": "and",
+                                "type": "else"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "check_positives",
+                        "id": "7",
+                        "type": "decision"
+                    },
+                    "errors": {},
+                    "id": "7",
+                    "type": "decision",
+                    "warnings": {},
+                    "x": 220,
+                    "y": 260
                 }
             },
             "notes": ""
@@ -372,7 +426,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T19:27:15.833867+00:00",
+    "create_time": "2024-03-25T19:44:37.013989+00:00",
     "draft_mode": false,
     "labels": [
         "*"

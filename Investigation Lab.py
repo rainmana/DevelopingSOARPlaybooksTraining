@@ -49,18 +49,7 @@ def locate_source(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("geolocate ip", parameters=parameters, name="locate_source", assets=["maxmind"], callback=join_debug_2)
-
-    return
-
-
-@phantom.playbook_block()
-def join_debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug("join_debug_2() called")
-
-    if phantom.completed(action_names=["locate_source", "source_reputation", "virus_search"]):
-        # call connected block "debug_2"
-        debug_2(container=container, handle=handle)
+    phantom.act("geolocate ip", parameters=parameters, name="locate_source", assets=["maxmind"], callback=join_check_positives)
 
     return
 
@@ -133,7 +122,7 @@ def source_reputation(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.act("domain reputation", parameters=parameters, name="source_reputation", assets=["virustotal"], callback=join_debug_2)
+    phantom.act("domain reputation", parameters=parameters, name="source_reputation", assets=["virustotal"], callback=join_check_positives)
 
     return
 
@@ -166,7 +155,37 @@ def virus_search(action=None, success=None, container=None, results=None, handle
     ## Custom Code End
     ################################################################################
 
-    phantom.act("file reputation", parameters=parameters, name="virus_search", assets=["virustotal"], callback=join_debug_2)
+    phantom.act("file reputation", parameters=parameters, name="virus_search", assets=["virustotal"], callback=join_check_positives)
+
+    return
+
+
+@phantom.playbook_block()
+def join_check_positives(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("join_check_positives() called")
+
+    if phantom.completed(action_names=["locate_source", "source_reputation", "virus_search"]):
+        # call connected block "check_positives"
+        check_positives(container=container, handle=handle)
+
+    return
+
+
+@phantom.playbook_block()
+def check_positives(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("check_positives() called")
+
+    # check for 'if' condition 1
+    found_match_1 = phantom.decision(
+        container=container,
+        conditions=[
+            ["virus_search:action_result.summary.positives", ">", 10]
+        ],
+        delimiter=None)
+
+    # call connected blocks if condition 1 matched
+    if found_match_1:
+        return
 
     return
 
