@@ -14,20 +14,14 @@
                     "targetPort": "2_in"
                 },
                 {
-                    "id": "port_2_to_port_1",
+                    "id": "port_2_to_port_5",
                     "sourceNode": "2",
                     "sourcePort": "2_out",
-                    "targetNode": "1",
-                    "targetPort": "1_in"
-                },
-                {
-                    "id": "port_2_to_port_4",
-                    "sourceNode": "2",
-                    "sourcePort": "2_out",
-                    "targetNode": "4",
-                    "targetPort": "4_in"
+                    "targetNode": "5",
+                    "targetPort": "5_in"
                 }
             ],
+            "hash": "dc874451c707ec032a515572e9bca8fd7c4f722c",
             "nodes": {
                 "0": {
                     "data": {
@@ -263,6 +257,42 @@
                     "warnings": {},
                     "x": 760,
                     "y": 760
+                },
+                "5": {
+                    "data": {
+                        "action": "domain reputation",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "customName": "Source Reputation",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "connector": "VirusTotal",
+                        "connectorConfigs": [
+                            "virustotal"
+                        ],
+                        "connectorId": "11f676a4-f3d4-4db0-8587-f4e942c07c7c",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "source_reputation",
+                        "id": "5",
+                        "parameters": {
+                            "domain": "artifact:*.cef.sourceDnsDomain"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "domain"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 980,
+                    "y": 604.5
                 }
             },
             "notes": ""
@@ -274,7 +304,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T18:29:41.978604+00:00",
+    "create_time": "2024-03-25T19:07:20.355973+00:00",
     "draft_mode": false,
     "labels": [
         "*"
