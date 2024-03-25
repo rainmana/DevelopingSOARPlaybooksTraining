@@ -14,6 +14,10 @@ def on_start(container):
 
     # call 'locate_source' block
     locate_source(container=container)
+    # call 'virus_search' block
+    virus_search(container=container)
+    # call 'source_reputation' block
+    source_reputation(container=container)
 
     return
 
@@ -45,7 +49,18 @@ def locate_source(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("geolocate ip", parameters=parameters, name="locate_source", assets=["maxmind"], callback=source_reputation)
+    phantom.act("geolocate ip", parameters=parameters, name="locate_source", assets=["maxmind"], callback=join_debug_2)
+
+    return
+
+
+@phantom.playbook_block()
+def join_debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("join_debug_2() called")
+
+    if phantom.completed(action_names=["locate_source", "source_reputation", "virus_search"]):
+        # call connected block "debug_2"
+        debug_2(container=container, handle=handle)
 
     return
 
@@ -118,7 +133,7 @@ def source_reputation(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.act("domain reputation", parameters=parameters, name="source_reputation", assets=["virustotal"], callback=virus_search)
+    phantom.act("domain reputation", parameters=parameters, name="source_reputation", assets=["virustotal"], callback=join_debug_2)
 
     return
 
@@ -151,7 +166,7 @@ def virus_search(action=None, success=None, container=None, results=None, handle
     ## Custom Code End
     ################################################################################
 
-    phantom.act("file reputation", parameters=parameters, name="virus_search", assets=["virustotal"], callback=debug_2)
+    phantom.act("file reputation", parameters=parameters, name="virus_search", assets=["virustotal"], callback=join_debug_2)
 
     return
 
