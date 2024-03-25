@@ -61,7 +61,7 @@
                     "targetPort": "8_in"
                 }
             ],
-            "hash": "298abe25580b46c7774584ae9b1da6bf9584e8b3",
+            "hash": "7f52f4510764aed918116b38acbc6779b2dfcca9",
             "nodes": {
                 "0": {
                     "data": {
@@ -298,11 +298,7 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": -220,
                     "y": 440
                 },
@@ -392,7 +388,7 @@
                                         "conditionIndex": 0,
                                         "op": ">",
                                         "param": "virus_search:action_result.summary.positives",
-                                        "value": "10"
+                                        "value": "11"
                                     }
                                 ],
                                 "conditionIndex": 0,
@@ -404,6 +400,7 @@
                             {
                                 "comparisons": [
                                     {
+                                        "conditionIndex": 1,
                                         "op": "==",
                                         "param": "",
                                         "value": ""
@@ -460,9 +457,7 @@
                         ],
                         "type": "prompt"
                     },
-                    "errors": {
-                        "message": "Add message content."
-                    },
+                    "errors": {},
                     "id": "8",
                     "type": "prompt",
                     "warnings": {},
@@ -479,7 +474,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T19:49:31.124755+00:00",
+    "create_time": "2024-03-25T19:50:41.686569+00:00",
     "draft_mode": false,
     "labels": [
         "*"
