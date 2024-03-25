@@ -54,11 +54,17 @@ def locate_source(action=None, success=None, container=None, results=None, handl
 def debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("debug_2() called")
 
+    source_reputation_result_data = phantom.collect2(container=container, datapath=["source_reputation:action_result.summary","source_reputation:action_result.parameter.context.artifact_id"], action_results=results)
+    virus_search_result_data = phantom.collect2(container=container, datapath=["virus_search:action_result.summary","virus_search:action_result.parameter.context.artifact_id"], action_results=results)
+
+    source_reputation_result_item_0 = [item[0] for item in source_reputation_result_data]
+    virus_search_result_item_0 = [item[0] for item in virus_search_result_data]
+
     parameters = []
 
     parameters.append({
-        "input_1": None,
-        "input_2": None,
+        "input_1": source_reputation_result_item_0,
+        "input_2": virus_search_result_item_0,
         "input_3": None,
         "input_4": None,
         "input_5": None,

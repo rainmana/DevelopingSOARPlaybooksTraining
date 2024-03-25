@@ -42,7 +42,7 @@
                     "targetPort": "4_in"
                 }
             ],
-            "hash": "ee56102244b4521d95cb88f01c9c81365fe3b0b0",
+            "hash": "8ebd6c0f39645cc18f4ad5f538840736156866fe",
             "nodes": {
                 "0": {
                     "data": {
@@ -259,9 +259,13 @@
                         "utilityType": "custom_function",
                         "values": {
                             "debug": {
-                                "input_1": null,
+                                "input_1": [
+                                    "source_reputation:action_result.summary"
+                                ],
                                 "input_10": null,
-                                "input_2": null,
+                                "input_2": [
+                                    "virus_search:action_result.summary"
+                                ],
                                 "input_3": null,
                                 "input_4": null,
                                 "input_5": null,
@@ -361,7 +365,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T19:22:26.266507+00:00",
+    "create_time": "2024-03-25T19:23:54.603692+00:00",
     "draft_mode": false,
     "labels": [
         "*"
