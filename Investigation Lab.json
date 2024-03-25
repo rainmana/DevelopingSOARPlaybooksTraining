@@ -85,9 +85,21 @@
                     "sourcePort": "10_out",
                     "targetNode": "11",
                     "targetPort": "11_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_9_to_port_12",
+                    "sourceNode": "9",
+                    "sourcePort": "9_out",
+                    "targetNode": "12",
+                    "targetPort": "12_in"
                 }
             ],
-            "hash": "dd8954d45421a4fe78bb60f5be5648ef27a4756d",
+            "hash": "a7436d3838f34400471b8f0915fc5369b476e52a",
             "nodes": {
                 "0": {
                     "data": {
@@ -102,7 +114,7 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 160,
+                    "x": 220,
                     "y": 0
                 },
                 "1": {
@@ -118,8 +130,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": -160,
-                    "y": 620
+                    "x": 520,
+                    "y": 0
                 },
                 "10": {
                     "data": {
@@ -141,8 +153,8 @@
                     "id": "10",
                     "type": "format",
                     "warnings": {},
-                    "x": 420,
-                    "y": 420
+                    "x": 310,
+                    "y": 492
                 },
                 "11": {
                     "data": {
@@ -239,8 +251,159 @@
                     "id": "11",
                     "type": "utility",
                     "warnings": {},
-                    "x": 420,
-                    "y": 540
+                    "x": 310,
+                    "y": 672
+                },
+                "12": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 4,
+                        "functionName": "pin_add_comment_4",
+                        "id": "12",
+                        "selectMore": false,
+                        "tab": "apis",
+                        "type": "utility",
+                        "utilities": {
+                            "comment": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "comment",
+                                        "name": "comment",
+                                        "placeholder": "Enter a comment",
+                                        "renderType": "datapath",
+                                        "required": true
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "add comment",
+                                "name": "comment"
+                            },
+                            "pin": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "message",
+                                        "name": "message",
+                                        "placeholder": "Enter a message",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "data",
+                                        "name": "data",
+                                        "placeholder": "Enter a value",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "card",
+                                            "data"
+                                        ],
+                                        "description": "",
+                                        "label": "pin type",
+                                        "name": "pin_type",
+                                        "placeholder": "Select pin type",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "grey",
+                                            "blue",
+                                            "red"
+                                        ],
+                                        "description": "",
+                                        "label": "pin color",
+                                        "name": "pin_style",
+                                        "placeholder": "Select pin color",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "name",
+                                        "name": "name",
+                                        "placeholder": "Use a named pin",
+                                        "renderType": "input",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "truncate",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "pin",
+                                "name": "pin"
+                            }
+                        },
+                        "utilityType": "api",
+                        "values": {
+                            "comment": {
+                                "_internal": [
+                                    "container",
+                                    "author",
+                                    "trace"
+                                ],
+                                "comment": "User failed to promote event within time limit."
+                            },
+                            "pin": {
+                                "_internal": [
+                                    "container",
+                                    "author",
+                                    "truncate",
+                                    "trace"
+                                ],
+                                "data": null,
+                                "message": "Awaiting Action",
+                                "name": "Awaiting Action",
+                                "pin_style": "red",
+                                "pin_type": "card"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "12",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 720,
+                    "y": 804.5
                 },
                 "2": {
                     "data": {
@@ -275,8 +438,8 @@
                     "id": "2",
                     "type": "action",
                     "warnings": {},
-                    "x": 140,
-                    "y": 140
+                    "x": 820,
+                    "y": 148
                 },
                 "4": {
                     "data": {
@@ -445,13 +608,9 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
-                    "x": -220,
-                    "y": 440
+                    "warnings": {},
+                    "x": 820,
+                    "y": 0
                 },
                 "5": {
                     "data": {
@@ -486,8 +645,8 @@
                     "id": "5",
                     "type": "action",
                     "warnings": {},
-                    "x": -160,
-                    "y": 140
+                    "x": 0,
+                    "y": 148
                 },
                 "6": {
                     "data": {
@@ -522,8 +681,8 @@
                     "id": "6",
                     "type": "action",
                     "warnings": {},
-                    "x": 440,
-                    "y": 140
+                    "x": 340,
+                    "y": 148
                 },
                 "7": {
                     "data": {
@@ -573,8 +732,8 @@
                     "id": "7",
                     "type": "decision",
                     "warnings": {},
-                    "x": 220,
-                    "y": 260
+                    "x": 390,
+                    "y": 296
                 },
                 "8": {
                     "data": {
@@ -612,8 +771,8 @@
                     "id": "8",
                     "type": "prompt",
                     "warnings": {},
-                    "x": 219.99996948242188,
-                    "y": 413.1817932128906
+                    "x": 650,
+                    "y": 476
                 },
                 "9": {
                     "data": {
@@ -641,6 +800,7 @@
                             {
                                 "comparisons": [
                                     {
+                                        "conditionIndex": 1,
                                         "op": "==",
                                         "param": "notify_soc_management:action_result.summary.responses.0",
                                         "value": "Yes"
@@ -655,6 +815,7 @@
                             {
                                 "comparisons": [
                                     {
+                                        "conditionIndex": 2,
                                         "op": "==",
                                         "param": "",
                                         "value": ""
@@ -676,8 +837,8 @@
                     "id": "9",
                     "type": "decision",
                     "warnings": {},
-                    "x": 220,
-                    "y": 584.5
+                    "x": 650,
+                    "y": 656
                 }
             },
             "notes": ""
@@ -689,7 +850,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T20:07:18.647503+00:00",
+    "create_time": "2024-03-25T20:13:50.635325+00:00",
     "draft_mode": false,
     "labels": [
         "*"

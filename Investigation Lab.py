@@ -242,6 +242,7 @@ def evaluate_prompt(action=None, success=None, container=None, results=None, han
 
     # call connected blocks if condition 1 matched
     if found_match_1:
+        pin_add_comment_4(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     # check for 'elif' condition 2
@@ -307,6 +308,26 @@ def add_comment_set_status_3(action=None, success=None, container=None, results=
     phantom.set_status(container=container, status="closed")
 
     container = phantom.get_container(container.get('id', None))
+
+    return
+
+
+@phantom.playbook_block()
+def pin_add_comment_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("pin_add_comment_4() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.pin(container=container, message="Awaiting Action", name="Awaiting Action", pin_style="red", pin_type="card")
+    phantom.comment(container=container, comment="User failed to promote event within time limit.")
 
     return
 
