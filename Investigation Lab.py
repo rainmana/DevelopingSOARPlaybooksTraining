@@ -282,14 +282,14 @@ def format_closing_comment(action=None, success=None, container=None, results=No
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_closing_comment")
 
-    add_comment_3(container=container)
+    add_comment_set_status_3(container=container)
 
     return
 
 
 @phantom.playbook_block()
-def add_comment_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug("add_comment_3() called")
+def add_comment_set_status_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("add_comment_set_status_3() called")
 
     format_closing_comment__as_list = phantom.get_format_data(name="format_closing_comment__as_list")
 
@@ -304,6 +304,9 @@ def add_comment_3(action=None, success=None, container=None, results=None, handl
     ################################################################################
 
     phantom.comment(container=container, comment=format_closing_comment__as_list)
+    phantom.set_status(container=container, status="closed")
+
+    container = phantom.get_container(container.get('id', None))
 
     return
 

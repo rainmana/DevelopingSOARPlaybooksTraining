@@ -87,7 +87,7 @@
                     "targetPort": "11_in"
                 }
             ],
-            "hash": "0679d0c6771712d52a50de6db3a344d2624067b2",
+            "hash": "dd8954d45421a4fe78bb60f5be5648ef27a4756d",
             "nodes": {
                 "0": {
                     "data": {
@@ -147,11 +147,12 @@
                 "11": {
                     "data": {
                         "advanced": {
-                            "join": []
+                            "join": [],
+                            "refreshNotableData": true
                         },
                         "customFunction": null,
                         "functionId": 3,
-                        "functionName": "add_comment_3",
+                        "functionName": "add_comment_set_status_3",
                         "id": "11",
                         "selectMore": false,
                         "tab": "apis",
@@ -186,6 +187,33 @@
                                 ],
                                 "label": "add comment",
                                 "name": "comment"
+                            },
+                            "set_status": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "choices": "notableStatus",
+                                        "description": "",
+                                        "label": "status",
+                                        "name": "status",
+                                        "placeholder": "Select status",
+                                        "renderType": "dropdown",
+                                        "required": true
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "set status",
+                                "name": "set_status",
+                                "refreshNotableData": true
                             }
                         },
                         "utilityType": "api",
@@ -197,6 +225,13 @@
                                     "trace"
                                 ],
                                 "comment": "format_closing_comment:formatted_data.*"
+                            },
+                            "set_status": {
+                                "_internal": [
+                                    "container",
+                                    "trace"
+                                ],
+                                "status": "closed"
                             }
                         }
                     },
@@ -410,7 +445,11 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": -220,
                     "y": 440
                 },
@@ -650,7 +689,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T20:05:38.719373+00:00",
+    "create_time": "2024-03-25T20:07:18.647503+00:00",
     "draft_mode": false,
     "labels": [
         "*"
