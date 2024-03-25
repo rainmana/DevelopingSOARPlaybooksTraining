@@ -47,9 +47,21 @@
                     "sourcePort": "2_out",
                     "targetNode": "7",
                     "targetPort": "7_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_7_to_port_8",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
                 }
             ],
-            "hash": "44e0d63865c14992619c7e29e74ba3c56429a40a",
+            "hash": "9dc0d685916fc36c03ae57f3db939ae30ee4e295",
             "nodes": {
                 "0": {
                     "data": {
@@ -286,11 +298,7 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": -220,
                     "y": 440
                 },
@@ -415,6 +423,46 @@
                     "warnings": {},
                     "x": 220,
                     "y": 260
+                },
+                "8": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Notify SOC Management",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "approver": {
+                            "type": "user",
+                            "value": "container_owner"
+                        },
+                        "functionId": 1,
+                        "functionName": "notify_soc_management",
+                        "id": "8",
+                        "message": "A potentially malicious file download has been detected on a local server with IP address {0}.{0}",
+                        "parameters": [
+                            "artifact:*.cef.destinationAddress"
+                        ],
+                        "responseTime": 30,
+                        "responses": [
+                            {
+                                "responseOptions": [
+                                    "Yes",
+                                    "No"
+                                ],
+                                "responsePrompt": "Notify SOC management?",
+                                "responseType": "yes/no"
+                            }
+                        ],
+                        "type": "prompt"
+                    },
+                    "errors": {
+                        "message": "Add message content."
+                    },
+                    "id": "8",
+                    "type": "prompt",
+                    "warnings": {},
+                    "x": 219.99996948242188,
+                    "y": 413.1817932128906
                 }
             },
             "notes": ""
@@ -426,7 +474,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T19:44:37.013989+00:00",
+    "create_time": "2024-03-25T19:47:19.008853+00:00",
     "draft_mode": false,
     "labels": [
         "*"

@@ -185,7 +185,42 @@ def check_positives(action=None, success=None, container=None, results=None, han
 
     # call connected blocks if condition 1 matched
     if found_match_1:
+        notify_soc_management(action=action, success=success, container=container, results=results, handle=handle)
         return
+
+    return
+
+
+@phantom.playbook_block()
+def notify_soc_management(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("notify_soc_management() called")
+
+    # set user and message variables for phantom.prompt call
+
+    user = container.get('owner_name', None)
+    role = None
+    message = """A potentially malicious file download has been detected on a local server with IP address {0}.{0}"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "artifact:*.cef.destinationAddress"
+    ]
+
+    # responses
+    response_types = [
+        {
+            "prompt": "Notify SOC management?",
+            "options": {
+                "type": "list",
+                "choices": [
+                    "Yes",
+                    "No"
+                ],
+            },
+        }
+    ]
+
+    phantom.prompt2(container=container, user=user, role=role, message=message, respond_in_mins=30, name="notify_soc_management", parameters=parameters, response_types=response_types)
 
     return
 
