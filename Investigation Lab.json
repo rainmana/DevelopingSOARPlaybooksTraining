@@ -59,9 +59,16 @@
                     "sourcePort": "7_out",
                     "targetNode": "8",
                     "targetPort": "8_in"
+                },
+                {
+                    "id": "port_8_to_port_9",
+                    "sourceNode": "8",
+                    "sourcePort": "8_out",
+                    "targetNode": "9",
+                    "targetPort": "9_in"
                 }
             ],
-            "hash": "298abe25580b46c7774584ae9b1da6bf9584e8b3",
+            "hash": "30a7da69d091d723a78db2fdfcbad54e7a806fff",
             "nodes": {
                 "0": {
                     "data": {
@@ -92,8 +99,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 0,
-                    "y": 592
+                    "x": -160,
+                    "y": 620
                 },
                 "2": {
                     "data": {
@@ -298,7 +305,11 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": -220,
                     "y": 440
                 },
@@ -463,6 +474,70 @@
                     "warnings": {},
                     "x": 219.99996948242188,
                     "y": 413.1817932128906
+                },
+                "9": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Evaluate Prompt",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "!=",
+                                        "param": "notify_soc_management:action_result.status",
+                                        "value": "success"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "Timeout",
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "op": "==",
+                                        "param": "notify_soc_management:action_result.summary.responses.0",
+                                        "value": "Yes"
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "Escalate",
+                                "display": "Else If",
+                                "logic": "and",
+                                "type": "elif"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "op": "==",
+                                        "param": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 2,
+                                "customName": "Close",
+                                "display": "Else",
+                                "logic": "and",
+                                "type": "else"
+                            }
+                        ],
+                        "functionId": 2,
+                        "functionName": "evaluate_prompt",
+                        "id": "9",
+                        "type": "decision"
+                    },
+                    "errors": {},
+                    "id": "9",
+                    "type": "decision",
+                    "warnings": {},
+                    "x": 220,
+                    "y": 584.5
                 }
             },
             "notes": ""
@@ -474,7 +549,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T19:52:24.893659+00:00",
+    "create_time": "2024-03-25T19:57:19.745712+00:00",
     "draft_mode": false,
     "labels": [
         "*"
