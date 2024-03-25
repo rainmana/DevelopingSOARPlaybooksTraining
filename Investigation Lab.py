@@ -179,7 +179,7 @@ def check_positives(action=None, success=None, container=None, results=None, han
     found_match_1 = phantom.decision(
         container=container,
         conditions=[
-            ["virus_search:action_result.summary.positives", "<", 10]
+            ["virus_search:action_result.summary.positives", ">", 10]
         ],
         delimiter=None)
 
