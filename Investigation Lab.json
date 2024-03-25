@@ -19,9 +19,30 @@
                     "sourcePort": "2_out",
                     "targetNode": "5",
                     "targetPort": "5_in"
+                },
+                {
+                    "id": "port_5_to_port_6",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "6",
+                    "targetPort": "6_in"
+                },
+                {
+                    "id": "port_6_to_port_1",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_6_to_port_4",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "4",
+                    "targetPort": "4_in"
                 }
             ],
-            "hash": "dc874451c707ec032a515572e9bca8fd7c4f722c",
+            "hash": "ee56102244b4521d95cb88f01c9c81365fe3b0b0",
             "nodes": {
                 "0": {
                     "data": {
@@ -255,7 +276,7 @@
                     "id": "4",
                     "type": "utility",
                     "warnings": {},
-                    "x": 760,
+                    "x": 660,
                     "y": 760
                 },
                 "5": {
@@ -293,6 +314,42 @@
                     "warnings": {},
                     "x": 980,
                     "y": 604.5
+                },
+                "6": {
+                    "data": {
+                        "action": "file reputation",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "customName": "Virus Search",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "connector": "VirusTotal",
+                        "connectorConfigs": [
+                            "virustotal"
+                        ],
+                        "connectorId": "11f676a4-f3d4-4db0-8587-f4e942c07c7c",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "virus_search",
+                        "id": "6",
+                        "parameters": {
+                            "hash": "artifact:*.cef.fileHash"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "hash"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "6",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 980,
+                    "y": 684.5
                 }
             },
             "notes": ""
@@ -304,7 +361,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T19:07:20.355973+00:00",
+    "create_time": "2024-03-25T19:22:26.266507+00:00",
     "draft_mode": false,
     "labels": [
         "*"
