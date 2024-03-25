@@ -97,9 +97,21 @@
                     "sourcePort": "9_out",
                     "targetNode": "12",
                     "targetPort": "12_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 2
+                        }
+                    ],
+                    "id": "port_9_to_port_13",
+                    "sourceNode": "9",
+                    "sourcePort": "9_out",
+                    "targetNode": "13",
+                    "targetPort": "13_in"
                 }
             ],
-            "hash": "a7436d3838f34400471b8f0915fc5369b476e52a",
+            "hash": "da23629030c610bdb972cac82585829b3567e1bf",
             "nodes": {
                 "0": {
                     "data": {
@@ -153,7 +165,7 @@
                     "id": "10",
                     "type": "format",
                     "warnings": {},
-                    "x": 310,
+                    "x": 570,
                     "y": 492
                 },
                 "11": {
@@ -251,7 +263,7 @@
                     "id": "11",
                     "type": "utility",
                     "warnings": {},
-                    "x": 310,
+                    "x": 570,
                     "y": 672
                 },
                 "12": {
@@ -402,8 +414,105 @@
                     "id": "12",
                     "type": "utility",
                     "warnings": {},
-                    "x": 720,
-                    "y": 804.5
+                    "x": 310,
+                    "y": 836
+                },
+                "13": {
+                    "data": {
+                        "advanced": {
+                            "join": [],
+                            "refreshNotableData": true
+                        },
+                        "functionId": 5,
+                        "functionName": "add_comment_set_status_5",
+                        "id": "13",
+                        "selectMore": false,
+                        "tab": "apis",
+                        "type": "utility",
+                        "utilities": {
+                            "comment": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "comment",
+                                        "name": "comment",
+                                        "placeholder": "Enter a comment",
+                                        "renderType": "datapath",
+                                        "required": true
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "add comment",
+                                "name": "comment"
+                            },
+                            "set_status": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "choices": "notableStatus",
+                                        "description": "",
+                                        "label": "status",
+                                        "name": "status",
+                                        "placeholder": "Select status",
+                                        "renderType": "dropdown",
+                                        "required": true
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "set status",
+                                "name": "set_status",
+                                "refreshNotableData": true
+                            }
+                        },
+                        "utilityType": "api",
+                        "values": {
+                            "comment": {
+                                "_internal": [
+                                    "container",
+                                    "author",
+                                    "trace"
+                                ],
+                                "comment": "notify_soc_management:action_result.summary.responses.1"
+                            },
+                            "set_status": {
+                                "_internal": [
+                                    "container",
+                                    "trace"
+                                ],
+                                "status": "closed"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "13",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 660,
+                    "y": 840
                 },
                 "2": {
                     "data": {
@@ -608,7 +717,11 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": 820,
                     "y": 0
                 },
@@ -763,6 +876,10 @@
                                 ],
                                 "responsePrompt": "Notify SOC management?",
                                 "responseType": "yes/no"
+                            },
+                            {
+                                "responsePrompt": "Reason for decision:",
+                                "responseType": "message"
                             }
                         ],
                         "type": "prompt"
@@ -771,7 +888,7 @@
                     "id": "8",
                     "type": "prompt",
                     "warnings": {},
-                    "x": 650,
+                    "x": 390,
                     "y": 476
                 },
                 "9": {
@@ -837,7 +954,7 @@
                     "id": "9",
                     "type": "decision",
                     "warnings": {},
-                    "x": 650,
+                    "x": 390,
                     "y": 656
                 }
             },
@@ -850,7 +967,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T20:13:50.635325+00:00",
+    "create_time": "2024-03-25T20:18:10.775224+00:00",
     "draft_mode": false,
     "labels": [
         "*"

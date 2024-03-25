@@ -220,6 +220,12 @@ def notify_soc_management(action=None, success=None, container=None, results=Non
                     "No"
                 ],
             },
+        },
+        {
+            "prompt": "Reason for decision:",
+            "options": {
+                "type": "message",
+            },
         }
     ]
 
@@ -256,6 +262,9 @@ def evaluate_prompt(action=None, success=None, container=None, results=None, han
     # call connected blocks if condition 2 matched
     if found_match_2:
         return
+
+    # check for 'else' condition 3
+    add_comment_set_status_5(action=action, success=success, container=container, results=results, handle=handle)
 
     return
 
@@ -328,6 +337,32 @@ def pin_add_comment_4(action=None, success=None, container=None, results=None, h
 
     phantom.pin(container=container, message="Awaiting Action", name="Awaiting Action", pin_style="red", pin_type="card")
     phantom.comment(container=container, comment="User failed to promote event within time limit.")
+
+    return
+
+
+@phantom.playbook_block()
+def add_comment_set_status_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("add_comment_set_status_5() called")
+
+    notify_soc_management_result_data = phantom.collect2(container=container, datapath=["notify_soc_management:action_result.summary.responses.1"], action_results=results)
+
+    notify_soc_management_summary_responses_1 = [item[0] for item in notify_soc_management_result_data]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.comment(container=container, comment=notify_soc_management_summary_responses_1)
+    phantom.set_status(container=container, status="closed")
+
+    container = phantom.get_container(container.get('id', None))
 
     return
 
