@@ -61,7 +61,7 @@
                     "targetPort": "8_in"
                 }
             ],
-            "hash": "9dc0d685916fc36c03ae57f3db939ae30ee4e295",
+            "hash": "298abe25580b46c7774584ae9b1da6bf9584e8b3",
             "nodes": {
                 "0": {
                     "data": {
@@ -298,7 +298,11 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": -220,
                     "y": 440
                 },
@@ -429,6 +433,7 @@
                         "advanced": {
                             "customName": "Notify SOC Management",
                             "customNameId": 0,
+                            "drop_none": true,
                             "join": []
                         },
                         "approver": {
@@ -474,7 +479,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T19:47:19.008853+00:00",
+    "create_time": "2024-03-25T19:49:31.124755+00:00",
     "draft_mode": false,
     "labels": [
         "*"
