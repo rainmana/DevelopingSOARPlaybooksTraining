@@ -111,6 +111,7 @@
                     "targetPort": "13_in"
                 }
             ],
+            "hash": "842ab57121aa9650d8c8ee5f286129c3e83bdc5f",
             "nodes": {
                 "0": {
                     "data": {
@@ -716,7 +717,11 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": 820,
                     "y": 0
                 },
@@ -806,7 +811,7 @@
                                         "conditionIndex": 0,
                                         "op": ">",
                                         "param": "virus_search:action_result.summary.positives",
-                                        "value": "10"
+                                        "value": "10000"
                                     }
                                 ],
                                 "conditionIndex": 0,
@@ -962,7 +967,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T20:18:10.775224+00:00",
+    "create_time": "2024-03-25T20:22:14.406189+00:00",
     "draft_mode": false,
     "labels": [
         "*"
