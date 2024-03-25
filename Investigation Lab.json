@@ -12,8 +12,16 @@
                     "sourcePort": "0_out",
                     "targetNode": "2",
                     "targetPort": "2_in"
+                },
+                {
+                    "id": "port_2_to_port_1",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
+            "hash": "d876886137339ad56f1c3c27524b37de9ea95df6",
             "nodes": {
                 "0": {
                     "data": {
@@ -52,6 +60,8 @@
                         "action": "geolocate ip",
                         "actionType": "investigate",
                         "advanced": {
+                            "customName": "Locate Source",
+                            "customNameId": 0,
                             "join": []
                         },
                         "connector": "MaxMind",
@@ -61,7 +71,7 @@
                         "connectorId": "c566e153-3118-4033-abda-14dd9748c91a",
                         "connectorVersion": "v1",
                         "functionId": 1,
-                        "functionName": "geolocate_ip_1",
+                        "functionName": "locate_source",
                         "id": "2",
                         "parameters": {
                             "ip": "artifact:*.cef.sourceAddress"
@@ -91,7 +101,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T18:03:28.480571+00:00",
+    "create_time": "2024-03-25T18:22:25.674985+00:00",
     "draft_mode": false,
     "labels": [
         "*"
