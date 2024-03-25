@@ -66,9 +66,28 @@
                     "sourcePort": "8_out",
                     "targetNode": "9",
                     "targetPort": "9_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_7_to_port_10",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "10",
+                    "targetPort": "10_in"
+                },
+                {
+                    "id": "port_10_to_port_11",
+                    "sourceNode": "10",
+                    "sourcePort": "10_out",
+                    "targetNode": "11",
+                    "targetPort": "11_in"
                 }
             ],
-            "hash": "30a7da69d091d723a78db2fdfcbad54e7a806fff",
+            "hash": "0679d0c6771712d52a50de6db3a344d2624067b2",
             "nodes": {
                 "0": {
                     "data": {
@@ -101,6 +120,92 @@
                     "warnings": {},
                     "x": -160,
                     "y": 620
+                },
+                "10": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Format Closing Comment",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "format_closing_comment",
+                        "id": "10",
+                        "parameters": [
+                            "virus_search:action_result.summary.positives"
+                        ],
+                        "template": "Virus positives {0} are below threshold 10, closing event.",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "10",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 420,
+                    "y": 420
+                },
+                "11": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": null,
+                        "functionId": 3,
+                        "functionName": "add_comment_3",
+                        "id": "11",
+                        "selectMore": false,
+                        "tab": "apis",
+                        "type": "utility",
+                        "utilities": {
+                            "comment": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "comment",
+                                        "name": "comment",
+                                        "placeholder": "Enter a comment",
+                                        "renderType": "datapath",
+                                        "required": true
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "add comment",
+                                "name": "comment"
+                            }
+                        },
+                        "utilityType": "api",
+                        "values": {
+                            "comment": {
+                                "_internal": [
+                                    "container",
+                                    "author",
+                                    "trace"
+                                ],
+                                "comment": "format_closing_comment:formatted_data.*"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "11",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 420,
+                    "y": 540
                 },
                 "2": {
                     "data": {
@@ -305,11 +410,7 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": -220,
                     "y": 440
                 },
@@ -549,7 +650,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T19:57:19.745712+00:00",
+    "create_time": "2024-03-25T20:05:38.719373+00:00",
     "draft_mode": false,
     "labels": [
         "*"

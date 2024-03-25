@@ -188,6 +188,9 @@ def check_positives(action=None, success=None, container=None, results=None, han
         notify_soc_management(action=action, success=success, container=container, results=results, handle=handle)
         return
 
+    # check for 'else' condition 2
+    format_closing_comment(action=action, success=success, container=container, results=results, handle=handle)
+
     return
 
 
@@ -252,6 +255,55 @@ def evaluate_prompt(action=None, success=None, container=None, results=None, han
     # call connected blocks if condition 2 matched
     if found_match_2:
         return
+
+    return
+
+
+@phantom.playbook_block()
+def format_closing_comment(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("format_closing_comment() called")
+
+    template = """Virus positives {0} are below threshold 10, closing event."""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "virus_search:action_result.summary.positives"
+    ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_closing_comment")
+
+    add_comment_3(container=container)
+
+    return
+
+
+@phantom.playbook_block()
+def add_comment_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("add_comment_3() called")
+
+    format_closing_comment__as_list = phantom.get_format_data(name="format_closing_comment__as_list")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.comment(container=container, comment=format_closing_comment__as_list)
 
     return
 
