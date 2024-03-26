@@ -152,9 +152,16 @@
                     "sourcePort": "0_out",
                     "targetNode": "17",
                     "targetPort": "17_in"
+                },
+                {
+                    "id": "port_17_to_port_7",
+                    "sourceNode": "17",
+                    "sourcePort": "17_out",
+                    "targetNode": "7",
+                    "targetPort": "7_in"
                 }
             ],
-            "hash": "0c882ce9ee492df9eaa3ceb6b177cd63890011a2",
+            "hash": "22f669466836965e0cbb345311993322001a19fd",
             "nodes": {
                 "0": {
                     "data": {
@@ -170,7 +177,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 530,
-                    "y": 0
+                    "y": -6.394884621840902e-14
                 },
                 "1": {
                     "data": {
@@ -186,7 +193,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 830,
-                    "y": 0
+                    "y": -6.394884621840902e-14
                 },
                 "10": {
                     "data": {
@@ -201,7 +208,7 @@
                         "parameters": [
                             "virus_search:action_result.summary.positives"
                         ],
-                        "template": "Virus positives {0} are below threshold 10, closing event.",
+                        "template": "Virus positives {0} are below threshold 10, closing event.\n\n",
                         "type": "format"
                     },
                     "errors": {},
@@ -568,6 +575,12 @@
                         "functionName": "promote_to_case",
                         "id": "14",
                         "inputs": {
+                            "Hash history": {
+                                "datapaths": [
+                                    "playbook_log_file_hashes_1:playbook_output:hash_status"
+                                ],
+                                "deduplicate": false
+                            },
                             "promotion_reason": {
                                 "datapaths": [
                                     "notify_soc_management:action_result.summary.responses.1"
@@ -751,15 +764,15 @@
                         "playbookRepo": 3,
                         "playbookRepoName": "DevelopingSOARPlaybooksTraining",
                         "playbookType": "data",
-                        "synchronous": false,
+                        "synchronous": true,
                         "type": "playbook"
                     },
                     "errors": {},
                     "id": "17",
                     "type": "playbook",
                     "warnings": {},
-                    "x": 1020,
-                    "y": 148
+                    "x": 1040,
+                    "y": 220
                 },
                 "2": {
                     "data": {
@@ -964,13 +977,9 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 1130,
-                    "y": 0
+                    "y": 7.105427357601002e-15
                 },
                 "5": {
                     "data": {
@@ -1214,7 +1223,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-26T20:13:28.202192+00:00",
+    "create_time": "2024-03-26T20:32:48.104319+00:00",
     "draft_mode": false,
     "labels": [
         "*"

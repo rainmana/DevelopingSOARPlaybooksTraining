@@ -166,7 +166,7 @@ def virus_search(action=None, success=None, container=None, results=None, handle
 def join_check_positives(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("join_check_positives() called")
 
-    if phantom.completed(action_names=["locate_source", "source_reputation", "virus_search"]):
+    if phantom.completed(action_names=["locate_source", "source_reputation", "virus_search"], playbook_names=["playbook_log_file_hashes_1"]):
         # call connected block "check_positives"
         check_positives(container=container, handle=handle)
 
@@ -276,7 +276,7 @@ def evaluate_prompt(action=None, success=None, container=None, results=None, han
 def format_closing_comment(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("format_closing_comment() called")
 
-    template = """Virus positives {0} are below threshold 10, closing event."""
+    template = """Virus positives {0} are below threshold 10, closing event.\n\n"""
 
     # parameter list for template variable replacement
     parameters = [
@@ -375,11 +375,14 @@ def promote_to_case(action=None, success=None, container=None, results=None, han
     phantom.debug("promote_to_case() called")
 
     notify_soc_management_result_data = phantom.collect2(container=container, datapath=["notify_soc_management:action_result.summary.responses.1"], action_results=results)
+    playbook_log_file_hashes_1_output_hash_status = phantom.collect2(container=container, datapath=["playbook_log_file_hashes_1:playbook_output:hash_status"])
 
     notify_soc_management_summary_responses_1 = [item[0] for item in notify_soc_management_result_data]
+    playbook_log_file_hashes_1_output_hash_status_values = [item[0] for item in playbook_log_file_hashes_1_output_hash_status]
 
     inputs = {
         "promotion_reason": notify_soc_management_summary_responses_1,
+        "hash_history": playbook_log_file_hashes_1_output_hash_status_values,
     }
 
     ################################################################################
@@ -476,7 +479,7 @@ def playbook_log_file_hashes_1(action=None, success=None, container=None, result
     ################################################################################
 
     # call playbook "DevelopingSOARPlaybooksTraining/Log File Hashes", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("DevelopingSOARPlaybooksTraining/Log File Hashes", container=container, inputs=inputs)
+    playbook_run_id = phantom.playbook("DevelopingSOARPlaybooksTraining/Log File Hashes", container=container, name="playbook_log_file_hashes_1", callback=join_check_positives, inputs=inputs)
 
     return
 
