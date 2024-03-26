@@ -28,7 +28,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "0169828d7e58cfcbb05e89551d53a62e1e563a40",
+            "hash": "7113f959eb6d91dfe235d67e4bd1a2424bbc9557",
             "nodes": {
                 "0": {
                     "data": {
@@ -44,7 +44,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": 419.9999999999999
+                    "y": 419.9999999999998
                 },
                 "1": {
                     "data": {
@@ -65,11 +65,13 @@
                 "3": {
                     "data": {
                         "advanced": {
+                            "customName": "Compose Report",
+                            "customNameId": 0,
                             "drop_none": true,
                             "join": []
                         },
                         "functionId": 2,
-                        "functionName": "format_2",
+                        "functionName": "compose_report",
                         "id": "3",
                         "parameters": [
                             "container:url",
@@ -78,9 +80,10 @@
                             "artifact:*.cef.sourceDnsDomain",
                             "artifact:*.cef.destinationAddress",
                             "artifact:*.cef.filePath",
-                            "playbook_input:promotion_reason"
+                            "playbook_input:promotion_reason",
+                            "playbook_input:hash_history"
                         ],
-                        "template": "A file has been detected that has been determined to be potentially malicious. A case has been opened.\n\n- **Case link**: {0}\n- **Event Name**: {1}\n- **Description**: {2}\n- **Source URL**: {3}\n- **Target Server IP**: {4}\n- **Suspicious File Path**: {5} \n- **Reason for promotion**: {6}",
+                        "template": "A file has been detected that has been determined to be potentially malicious. A case has been opened.\n\n- **Case link**: {0}\n- **Event Name**: {1}\n- **Description**: {2}\n- **Source URL**: {3}\n- **Target Server IP**: {4}\n- **Suspicious File Path**: {5} \n- **Reason for promotion**: {6} (*{7}*){7}",
                         "type": "format"
                     },
                     "errors": {},
@@ -252,7 +255,7 @@
                                     "task_id",
                                     "trace"
                                 ],
-                                "content": "format_2:formatted_data",
+                                "content": "compose_report:formatted_data",
                                 "note_format": "markdown",
                                 "note_type": "general",
                                 "title": "Incident Report"
@@ -277,11 +280,7 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 980,
                     "y": 780
                 }
@@ -293,6 +292,11 @@
                 "contains": [],
                 "description": "Promotion Reason",
                 "name": "promotion_reason"
+            },
+            {
+                "contains": [],
+                "description": "",
+                "name": "Hash history"
             }
         ],
         "output_spec": null,
@@ -301,7 +305,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-26T19:19:16.855952+00:00",
+    "create_time": "2024-03-26T20:26:48.557339+00:00",
     "draft_mode": false,
     "labels": [
         "*"
