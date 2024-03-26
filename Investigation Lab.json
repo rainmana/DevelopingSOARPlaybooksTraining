@@ -145,9 +145,16 @@
                     "sourcePort": "7_out",
                     "targetNode": "10",
                     "targetPort": "10_in"
+                },
+                {
+                    "id": "port_0_to_port_17",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "17",
+                    "targetPort": "17_in"
                 }
             ],
-            "hash": "0c882ce9ee492df9eaa3ceb6b177cd63890011a2",
+            "hash": "e98f2a0e9d34ec1febe80eb9dff668a813514f56",
             "nodes": {
                 "0": {
                     "data": {
@@ -163,7 +170,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 360,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "1": {
                     "data": {
@@ -179,7 +186,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 660,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "10": {
                     "data": {
@@ -724,6 +731,36 @@
                     "x": 170,
                     "y": 672
                 },
+                "17": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_Log_File_Hashes_1",
+                        "id": "17",
+                        "inputs": {
+                            "Hash": {
+                                "datapaths": [
+                                    "artifact:*.cef.fileHash"
+                                ],
+                                "deduplicate": false
+                            }
+                        },
+                        "playbookName": "Log File Hashes",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "DevelopingSOARPlaybooksTraining",
+                        "playbookType": "data",
+                        "synchronous": false,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "17",
+                    "type": "playbook",
+                    "warnings": {},
+                    "x": 20,
+                    "y": 84.5
+                },
                 "2": {
                     "data": {
                         "action": "geolocate ip",
@@ -929,7 +966,7 @@
                     "type": "utility",
                     "warnings": {},
                     "x": 960,
-                    "y": 7.105427357601002e-15
+                    "y": 1.4210854715202004e-14
                 },
                 "5": {
                     "data": {
@@ -1173,7 +1210,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-26T19:56:54.345382+00:00",
+    "create_time": "2024-03-26T20:13:28.202192+00:00",
     "draft_mode": false,
     "labels": [
         "*"

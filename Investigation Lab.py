@@ -18,6 +18,8 @@ def on_start(container):
     virus_search(container=container)
     # call 'source_reputation' block
     source_reputation(container=container)
+    # call 'playbook_log_file_hashes_1' block
+    playbook_log_file_hashes_1(container=container)
 
     return
 
@@ -447,6 +449,34 @@ def add_comment_set_status_1(action=None, success=None, container=None, results=
     phantom.set_status(container=container, status="closed")
 
     container = phantom.get_container(container.get('id', None))
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_log_file_hashes_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("playbook_log_file_hashes_1() called")
+
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.fileHash"])
+
+    container_artifact_cef_item_0 = [item[0] for item in container_artifact_data]
+
+    inputs = {
+        "hash": container_artifact_cef_item_0,
+    }
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    # call playbook "DevelopingSOARPlaybooksTraining/Log File Hashes", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("DevelopingSOARPlaybooksTraining/Log File Hashes", container=container, inputs=inputs)
 
     return
 
