@@ -28,7 +28,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "3438d8ef45a37d3529a5e63029c409c02652fbfc",
+            "hash": "6b7efbe0a82c2e7ccdb148ad2986b7165eb24769",
             "nodes": {
                 "0": {
                     "data": {
@@ -65,7 +65,7 @@
                 "3": {
                     "data": {
                         "advanced": {
-                            "drop_none": true,
+                            "drop_none": false,
                             "join": []
                         },
                         "functionId": 2,
@@ -297,7 +297,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-26T18:51:33.263280+00:00",
+    "create_time": "2024-03-26T18:54:38.122832+00:00",
     "draft_mode": false,
     "labels": [
         "*"

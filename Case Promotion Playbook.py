@@ -44,7 +44,7 @@ def format_2(action=None, success=None, container=None, results=None, handle=Non
     ## Custom Code End
     ################################################################################
 
-    phantom.format(container=container, template=template, parameters=parameters, name="format_2", drop_none=True)
+    phantom.format(container=container, template=template, parameters=parameters, name="format_2", drop_none=False)
 
     promote_to_case_add_comment_add_note_2(container=container)
 
