@@ -163,7 +163,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 360,
-                    "y": 0
+                    "y": -6.394884621840902e-14
                 },
                 "1": {
                     "data": {
@@ -179,7 +179,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 660,
-                    "y": 0
+                    "y": -6.394884621840902e-14
                 },
                 "10": {
                     "data": {
@@ -604,6 +604,7 @@
                             {
                                 "comparisons": [
                                     {
+                                        "conditionIndex": 1,
                                         "op": "not in",
                                         "param": "locate_source:action_result.data.*.country_name",
                                         "value": "custom_list:Banned Countries"
@@ -928,7 +929,7 @@
                     "type": "utility",
                     "warnings": {},
                     "x": 960,
-                    "y": 0
+                    "y": 7.105427357601002e-15
                 },
                 "5": {
                     "data": {
