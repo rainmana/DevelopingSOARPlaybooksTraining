@@ -44,7 +44,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": 419.9999999999998
+                    "y": 420
                 },
                 "1": {
                     "data": {
@@ -280,7 +280,11 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 980,
                     "y": 780
                 }
@@ -297,11 +301,6 @@
                 "contains": [],
                 "description": "",
                 "name": "Hash history"
-            },
-            {
-                "contains": [],
-                "description": "",
-                "name": "hash_history"
             }
         ],
         "output_spec": null,
