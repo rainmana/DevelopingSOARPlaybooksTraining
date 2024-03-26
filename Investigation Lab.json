@@ -121,9 +121,33 @@
                     "sourcePort": "15_out",
                     "targetNode": "16",
                     "targetPort": "16_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_15_to_port_8",
+                    "sourceNode": "15",
+                    "sourcePort": "15_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_7_to_port_10",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "10",
+                    "targetPort": "10_in"
                 }
             ],
-            "hash": "0c882ce9ee492df9eaa3ceb6b177cd63890011a2",
+            "hash": "6a313db5c03ddf68f677529408f744452693c07e",
             "nodes": {
                 "0": {
                     "data": {
@@ -139,7 +163,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 360,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "1": {
                     "data": {
@@ -155,7 +179,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 660,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "10": {
                     "data": {
@@ -176,11 +200,7 @@
                     "errors": {},
                     "id": "10",
                     "type": "format",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 600,
                     "y": 492
                 },
@@ -912,7 +932,7 @@
                         ]
                     },
                     "x": 960,
-                    "y": 7.105427357601002e-15
+                    "y": 1.4210854715202004e-14
                 },
                 "5": {
                     "data": {
@@ -1076,11 +1096,7 @@
                     "errors": {},
                     "id": "8",
                     "type": "prompt",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 420,
                     "y": 476
                 },
@@ -1160,7 +1176,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-26T19:53:00.527448+00:00",
+    "create_time": "2024-03-26T19:56:54.345382+00:00",
     "draft_mode": false,
     "labels": [
         "*"
