@@ -46,14 +46,16 @@ def format_2(action=None, success=None, container=None, results=None, handle=Non
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_2", drop_none=True)
 
-    call_api_2(container=container)
+    promote_to_case_add_comment_add_note_2(container=container)
 
     return
 
 
 @phantom.playbook_block()
-def call_api_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug("call_api_2() called")
+def promote_to_case_add_comment_add_note_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("promote_to_case_add_comment_add_note_2() called")
+
+    format_2__as_list = phantom.get_format_data(name="format_2__as_list")
 
     ################################################################################
     ## Custom Code Start
@@ -64,6 +66,12 @@ def call_api_2(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
     ## Custom Code End
     ################################################################################
+
+    phantom.promote(container=container, template="Data Breach")
+    phantom.comment(container=container, comment="Promoted to Case")
+    phantom.add_note(container=container, content=format_2__as_list, note_format="markdown", note_type="general", title="Incident Report")
+
+    container = phantom.get_container(container.get('id', None))
 
     return
 
