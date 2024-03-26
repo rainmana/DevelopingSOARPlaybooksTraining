@@ -161,7 +161,7 @@
                     "targetPort": "7_in"
                 }
             ],
-            "hash": "22f669466836965e0cbb345311993322001a19fd",
+            "hash": "787128fec006719e048a7acbe096865850003272",
             "nodes": {
                 "0": {
                     "data": {
@@ -177,7 +177,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 530,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "1": {
                     "data": {
@@ -193,7 +193,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 830,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "10": {
                     "data": {
@@ -578,6 +578,12 @@
                             "Hash history": {
                                 "datapaths": [
                                     "playbook_log_file_hashes_1:playbook_output:hash_status"
+                                ],
+                                "deduplicate": false
+                            },
+                            "hash_history": {
+                                "datapaths": [
+                                    "playbook_input:hash_history"
                                 ],
                                 "deduplicate": false
                             },
@@ -979,7 +985,7 @@
                     "type": "utility",
                     "warnings": {},
                     "x": 1130,
-                    "y": 7.105427357601002e-15
+                    "y": 1.4210854715202004e-14
                 },
                 "5": {
                     "data": {
@@ -1223,7 +1229,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-26T20:32:48.104319+00:00",
+    "create_time": "2024-03-26T20:37:33.021563+00:00",
     "draft_mode": false,
     "labels": [
         "*"

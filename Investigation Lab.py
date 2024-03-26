@@ -374,15 +374,15 @@ def add_comment_set_status_5(action=None, success=None, container=None, results=
 def promote_to_case(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("promote_to_case() called")
 
+    playbook_input_hash_history = phantom.collect2(container=container, datapath=["playbook_input:hash_history"])
     notify_soc_management_result_data = phantom.collect2(container=container, datapath=["notify_soc_management:action_result.summary.responses.1"], action_results=results)
-    playbook_log_file_hashes_1_output_hash_status = phantom.collect2(container=container, datapath=["playbook_log_file_hashes_1:playbook_output:hash_status"])
 
+    playbook_input_hash_history_values = [item[0] for item in playbook_input_hash_history]
     notify_soc_management_summary_responses_1 = [item[0] for item in notify_soc_management_result_data]
-    playbook_log_file_hashes_1_output_hash_status_values = [item[0] for item in playbook_log_file_hashes_1_output_hash_status]
 
     inputs = {
+        "hash_history": playbook_input_hash_history_values,
         "promotion_reason": notify_soc_management_summary_responses_1,
-        "hash_history": playbook_log_file_hashes_1_output_hash_status_values,
     }
 
     ################################################################################
