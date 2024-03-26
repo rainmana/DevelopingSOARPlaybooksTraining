@@ -248,6 +248,7 @@ def evaluate_prompt(action=None, success=None, container=None, results=None, han
 
     # call connected blocks if condition 1 matched
     if found_match_1:
+        pin_add_comment_4(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     # check for 'elif' condition 2
@@ -260,12 +261,11 @@ def evaluate_prompt(action=None, success=None, container=None, results=None, han
 
     # call connected blocks if condition 2 matched
     if found_match_2:
+        promote_to_case(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     # check for 'else' condition 3
-    pin_add_comment_4(action=action, success=success, container=container, results=results, handle=handle)
     add_comment_set_status_5(action=action, success=success, container=container, results=results, handle=handle)
-    promote_to_case(action=action, success=success, container=container, results=results, handle=handle)
 
     return
 
