@@ -28,7 +28,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "7113f959eb6d91dfe235d67e4bd1a2424bbc9557",
+            "hash": "189ad4fec880e846d336dccb17bf1adbac472917",
             "nodes": {
                 "0": {
                     "data": {
@@ -83,7 +83,7 @@
                             "playbook_input:promotion_reason",
                             "playbook_input:hash_history"
                         ],
-                        "template": "A file has been detected that has been determined to be potentially malicious. A case has been opened.\n\n- **Case link**: {0}\n- **Event Name**: {1}\n- **Description**: {2}\n- **Source URL**: {3}\n- **Target Server IP**: {4}\n- **Suspicious File Path**: {5} \n- **Reason for promotion**: {6} (*{7}*){7}",
+                        "template": "A file has been detected that has been determined to be potentially malicious. A case has been opened.\n\n- **Case link**: {0}\n- **Event Name**: {1}\n- **Description**: {2}\n- **Source URL**: {3}\n- **Target Server IP**: {4}\n- **Suspicious File Path**: {5} \n- **Reason for promotion**: {6} (*{7}*)",
                         "type": "format"
                     },
                     "errors": {},
@@ -305,7 +305,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-26T20:26:48.557339+00:00",
+    "create_time": "2024-03-26T20:27:32.785636+00:00",
     "draft_mode": false,
     "labels": [
         "*"

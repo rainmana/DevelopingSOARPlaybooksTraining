@@ -21,7 +21,7 @@ def on_start(container):
 def compose_report(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("compose_report() called")
 
-    template = """A file has been detected that has been determined to be potentially malicious. A case has been opened.\n\n- **Case link**: {0}\n- **Event Name**: {1}\n- **Description**: {2}\n- **Source URL**: {3}\n- **Target Server IP**: {4}\n- **Suspicious File Path**: {5} \n- **Reason for promotion**: {6} (*{7}*){7}"""
+    template = """A file has been detected that has been determined to be potentially malicious. A case has been opened.\n\n- **Case link**: {0}\n- **Event Name**: {1}\n- **Description**: {2}\n- **Source URL**: {3}\n- **Target Server IP**: {4}\n- **Suspicious File Path**: {5} \n- **Reason for promotion**: {6} (*{7}*)"""
 
     # parameter list for template variable replacement
     parameters = [
