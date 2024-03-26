@@ -89,7 +89,7 @@
                 {
                     "conditions": [
                         {
-                            "index": 0
+                            "index": 2
                         }
                     ],
                     "id": "port_9_to_port_12",
@@ -109,9 +109,21 @@
                     "sourcePort": "9_out",
                     "targetNode": "13",
                     "targetPort": "13_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 2
+                        }
+                    ],
+                    "id": "port_9_to_port_14",
+                    "sourceNode": "9",
+                    "sourcePort": "9_out",
+                    "targetNode": "14",
+                    "targetPort": "14_in"
                 }
             ],
-            "hash": "da23629030c610bdb972cac82585829b3567e1bf",
+            "hash": "bd0e4d5ba34fd50bff9e30d18aec7c34e1f3e33e",
             "nodes": {
                 "0": {
                     "data": {
@@ -126,7 +138,7 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 220,
+                    "x": 360,
                     "y": 0
                 },
                 "1": {
@@ -142,7 +154,7 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 520,
+                    "x": 660,
                     "y": 0
                 },
                 "10": {
@@ -165,7 +177,7 @@
                     "id": "10",
                     "type": "format",
                     "warnings": {},
-                    "x": 570,
+                    "x": 600,
                     "y": 492
                 },
                 "11": {
@@ -263,7 +275,7 @@
                     "id": "11",
                     "type": "utility",
                     "warnings": {},
-                    "x": 570,
+                    "x": 600,
                     "y": 672
                 },
                 "12": {
@@ -414,7 +426,7 @@
                     "id": "12",
                     "type": "utility",
                     "warnings": {},
-                    "x": 180,
+                    "x": 820,
                     "y": 836
                 },
                 "13": {
@@ -511,7 +523,39 @@
                     "id": "13",
                     "type": "utility",
                     "warnings": {},
-                    "x": 520,
+                    "x": 140,
+                    "y": 836
+                },
+                "14": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Promote to Case",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "promote_to_case",
+                        "id": "14",
+                        "inputs": {
+                            "promotion_reason": {
+                                "datapaths": [
+                                    "notify_soc_management:action_result.summary.responses.1"
+                                ],
+                                "deduplicate": false
+                            }
+                        },
+                        "playbookName": "Case Promotion Playbook",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "DevelopingSOARPlaybooksTraining",
+                        "playbookType": "data",
+                        "synchronous": true,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "14",
+                    "type": "playbook",
+                    "warnings": {},
+                    "x": 480,
                     "y": 836
                 },
                 "2": {
@@ -547,7 +591,7 @@
                     "id": "2",
                     "type": "action",
                     "warnings": {},
-                    "x": 820,
+                    "x": 790,
                     "y": 148
                 },
                 "4": {
@@ -718,7 +762,7 @@
                     "id": "4",
                     "type": "utility",
                     "warnings": {},
-                    "x": 820,
+                    "x": 960,
                     "y": 0
                 },
                 "5": {
@@ -841,7 +885,7 @@
                     "id": "7",
                     "type": "decision",
                     "warnings": {},
-                    "x": 390,
+                    "x": 420,
                     "y": 296
                 },
                 "8": {
@@ -884,7 +928,7 @@
                     "id": "8",
                     "type": "prompt",
                     "warnings": {},
-                    "x": 390,
+                    "x": 420,
                     "y": 476
                 },
                 "9": {
@@ -950,7 +994,7 @@
                     "id": "9",
                     "type": "decision",
                     "warnings": {},
-                    "x": 390,
+                    "x": 420,
                     "y": 656
                 }
             },
@@ -963,7 +1007,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-25T20:23:08.370694+00:00",
+    "create_time": "2024-03-26T19:21:43.503148+00:00",
     "draft_mode": false,
     "labels": [
         "*"
