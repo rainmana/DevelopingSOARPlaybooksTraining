@@ -28,7 +28,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "6b7efbe0a82c2e7ccdb148ad2986b7165eb24769",
+            "hash": "0169828d7e58cfcbb05e89551d53a62e1e563a40",
             "nodes": {
                 "0": {
                     "data": {
@@ -65,7 +65,7 @@
                 "3": {
                     "data": {
                         "advanced": {
-                            "drop_none": false,
+                            "drop_none": true,
                             "join": []
                         },
                         "functionId": 2,
@@ -252,7 +252,7 @@
                                     "task_id",
                                     "trace"
                                 ],
-                                "content": "format_2:formatted_data.*",
+                                "content": "format_2:formatted_data",
                                 "note_format": "markdown",
                                 "note_type": "general",
                                 "title": "Incident Report"
@@ -297,7 +297,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-26T18:54:38.122832+00:00",
+    "create_time": "2024-03-26T18:56:14.903324+00:00",
     "draft_mode": false,
     "labels": [
         "*"
