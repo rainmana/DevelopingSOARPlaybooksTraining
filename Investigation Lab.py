@@ -185,11 +185,8 @@ def check_positives(action=None, success=None, container=None, results=None, han
 
     # call connected blocks if condition 1 matched
     if found_match_1:
-        notify_soc_management(action=action, success=success, container=container, results=results, handle=handle)
+        filter_2(action=action, success=success, container=container, results=results, handle=handle)
         return
-
-    # check for 'else' condition 2
-    format_closing_comment(action=action, success=success, container=container, results=results, handle=handle)
 
     return
 
@@ -392,6 +389,39 @@ def promote_to_case(action=None, success=None, container=None, results=None, han
 
     # call playbook "DevelopingSOARPlaybooksTraining/Case Promotion Playbook", returns the playbook_run_id
     playbook_run_id = phantom.playbook("DevelopingSOARPlaybooksTraining/Case Promotion Playbook", container=container, name="promote_to_case", inputs=inputs)
+
+    return
+
+
+@phantom.playbook_block()
+def filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("filter_2() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["locate_source:action_result.data.*.country_name", "in", "custom_list:Banned Countries"]
+        ],
+        name="filter_2:condition_1",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        pass
+
+    # collect filtered artifact ids and results for 'if' condition 2
+    matched_artifacts_2, matched_results_2 = phantom.condition(
+        container=container,
+        conditions=[
+            ["locate_source:action_result.data.*.country_name", "not in", "custom_list:Banned Countries"]
+        ],
+        name="filter_2:condition_2",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_2 or matched_results_2:
+        pass
 
     return
 

@@ -49,35 +49,11 @@
                     "targetPort": "7_in"
                 },
                 {
-                    "conditions": [
-                        {
-                            "index": 0
-                        }
-                    ],
-                    "id": "port_7_to_port_8",
-                    "sourceNode": "7",
-                    "sourcePort": "7_out",
-                    "targetNode": "8",
-                    "targetPort": "8_in"
-                },
-                {
                     "id": "port_8_to_port_9",
                     "sourceNode": "8",
                     "sourcePort": "8_out",
                     "targetNode": "9",
                     "targetPort": "9_in"
-                },
-                {
-                    "conditions": [
-                        {
-                            "index": 1
-                        }
-                    ],
-                    "id": "port_7_to_port_10",
-                    "sourceNode": "7",
-                    "sourcePort": "7_out",
-                    "targetNode": "10",
-                    "targetPort": "10_in"
                 },
                 {
                     "id": "port_10_to_port_11",
@@ -121,9 +97,21 @@
                     "sourcePort": "9_out",
                     "targetNode": "14",
                     "targetPort": "14_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_7_to_port_15",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "15",
+                    "targetPort": "15_in"
                 }
             ],
-            "hash": "f0bc48bf61ae27ebb29cfa6a23aceb3964033fa3",
+            "hash": "a686d597bd35d53c51ec73f82b6600314a2c3886",
             "nodes": {
                 "0": {
                     "data": {
@@ -139,7 +127,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 360,
-                    "y": 0
+                    "y": -6.394884621840902e-14
                 },
                 "1": {
                     "data": {
@@ -155,7 +143,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 660,
-                    "y": 0
+                    "y": -6.394884621840902e-14
                 },
                 "10": {
                     "data": {
@@ -176,7 +164,14 @@
                     "errors": {},
                     "id": "10",
                     "type": "format",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": 600,
                     "y": 492
                 },
@@ -274,7 +269,11 @@
                     "errors": {},
                     "id": "11",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 600,
                     "y": 672
                 },
@@ -522,7 +521,11 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 140,
                     "y": 840
                 },
@@ -554,9 +557,57 @@
                     "errors": {},
                     "id": "14",
                     "type": "playbook",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 480,
                     "y": 836
+                },
+                "15": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "in",
+                                        "param": "locate_source:action_result.data.*.country_name",
+                                        "value": "custom_list:Banned Countries"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "Banned Source",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "op": "not in",
+                                        "param": "locate_source:action_result.data.*.country_name",
+                                        "value": "custom_list:Banned Countries"
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "Not Banned Source",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 2,
+                        "functionName": "filter_2",
+                        "id": "15",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "15",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 240,
+                    "y": 424.5
                 },
                 "2": {
                     "data": {
@@ -761,13 +812,9 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 960,
-                    "y": 0
+                    "y": 7.105427357601002e-15
                 },
                 "5": {
                     "data": {
@@ -997,7 +1044,11 @@
                     "errors": {},
                     "id": "9",
                     "type": "decision",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 420,
                     "y": 656
                 }
@@ -1011,7 +1062,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2024-03-26T19:27:03.001773+00:00",
+    "create_time": "2024-03-26T19:50:50.888885+00:00",
     "draft_mode": false,
     "labels": [
         "*"
